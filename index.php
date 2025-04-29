@@ -309,6 +309,14 @@ https://templatemo.com/tm-572-designer
       </div>
   </section>
 
+  <?php include_once "login.php";
+        use data\userManager;
+        $UM = new userManager();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $UM->register($_POST['login'], $_POST['email'], $_POST['password']);
+        }
+  ?>
+
 
   <section class="contact-us" id="contact">
       <div class="container">
@@ -318,26 +326,20 @@ https://templatemo.com/tm-572-designer
                       <div class="row">
                           <div class="col-lg-12">
                               <div class="section-heading">
-                                  <h2>Don't be Hesitated<br><em>Talk to us</em> now!</h2>
+                                  <h2>Don't be Hesitated<br><em>Register</em> right now!</h2>
                               </div>
                           </div>
-                          <div class="col-lg-6">                 
-                              <input name="name" type="text" id="name" placeholder="First Name*" required="">               
+                          <div class="col-lg-12">                 
+                              <input name="login" type="text" id="login" placeholder="Login" required="">               
                           </div>
-                          <div class="col-lg-6">                
-                              <input name="last-name" type="text" id="last-name" placeholder="Last Name*" required="">                           
-                          </div>
-                          <div class="col-lg-6">                       
+                          <div class="col-lg-12">                       
                               <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">                        
                           </div>
-                          <div class="col-lg-6">                         
-                              <input name="subject" type="text" id="subject" placeholder="Subject*" required="">                        
-                          </div>
-                          <div class="col-lg-12">                           
-                              <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>                          
+                          <div class="col-lg-12">                         
+                              <input name="password" type="text" id="password" placeholder="Password" required="">                        
                           </div>
                           <div class="col-lg-12">
-                              <button type="submit" id="form-submit" class="main-button ">Send Message</button>                            
+                              <button type="submit" id="form-submit" class="main-button ">Register</button>                            
                           </div>
                       </div>
                   </form>
